@@ -1,0 +1,20 @@
+Package: rkindoflife
+Title: R Kind of Life
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "John",
+           family = "Blischak",
+           role = c("aut", "cre"),
+           email = "jdblischak@gmail.com")
+Description: Tools for organizing personal data
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports:
+    cli,
+    fs,
+    glue,
+    jpeg,
+    png,
+    utils
+RoxygenNote: 6.1.0.9000
