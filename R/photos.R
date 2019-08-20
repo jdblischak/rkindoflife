@@ -15,6 +15,12 @@
 #' @return Invisibly returns path to destination directory (input argument
 #'   \code{to}) as an \code{\link[fs]{fs_path}} object.
 #'
+#' @examples
+#' \dontrun{
+#'
+#' sort_photos("~/Dropbox/Camera Uploads/", "~/Dropbox/family-photos/", subdir = "%Y %m %B")
+#' }
+#'
 #' @export
 sort_photos <- function(from, to, subdir = NULL) {
   from <- fs::path(from)
@@ -33,7 +39,7 @@ sort_photos <- function(from, to, subdir = NULL) {
   for (photo in photos) {
     plot_photo(photo)
     photo_name <- fs::path_file(photo)
-    photo_date <- as.Date(fs::file_info(photo)$birth_time)
+    photo_date <- as.Date(fs::file_info(photo)$modification_time)
     cli::cat_print(glue::glue("{photo_name} created on {photo_date}"))
     destination <- to
     if (!is.null(subdir)) {
@@ -73,7 +79,8 @@ plot_photo <- function(path) {
   } else if (ext %in% c("jpg", "jpeg")) {
     plot_jpg(path)
   } else {
-    warning(glue::glue("Don't know how to read file extension {ext}"))
+    warning(glue::glue("Don't know how to read file extension {ext}"),
+            call. = FALSE, immediate. = TRUE)
   }
 }
 

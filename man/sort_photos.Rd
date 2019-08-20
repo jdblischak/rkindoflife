@@ -24,3 +24,10 @@ Invisibly returns path to destination directory (input argument
 \description{
 For each photo file, you can move it, copy it, skip it, or delete it.
 }
+\examples{
+\dontrun{
+
+sort_photos("~/Dropbox/Camera Uploads/", "~/Dropbox/family-photos/", subdir = "\%Y \%m \%B")
+}
+
+}
