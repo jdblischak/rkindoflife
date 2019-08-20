@@ -80,14 +80,14 @@ plot_photo <- function(path) {
 # source: https://stackoverflow.com/a/23861028/2483477
 plot_jpg <- function(path) {
   photo <- jpeg::readJPEG(path, native = TRUE)
-  plot(0:1, 0:1, type = "n", ann = FALSE, axes = FALSE)
-  rasterImage(photo, 0, 0, 1, 1)
+  graphics::plot(0:1, 0:1, type = "n", ann = FALSE, axes = FALSE)
+  graphics::rasterImage(photo, 0, 0, 1, 1)
 }
 
 
 # source: https://stackoverflow.com/a/23861028/2483477
 plot_png <- function(path) {
   photo <- png::readPNG(path, native = TRUE)
-  plot.new()
-  rasterImage(photo, 0, 0, 1, 1)
+  graphics::plot.new()
+  graphics::rasterImage(photo, 0, 0, 1, 1)
 }
